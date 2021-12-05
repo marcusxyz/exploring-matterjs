@@ -17,3 +17,15 @@ const sectionTag = document.querySelector("section.shapes");
 // Canvas height and width
 const w = window.innerWidth;
 const h = window.innerHeight;
+const engine = Engine.create();
+const renderer = Render.create({
+  element: sectionTag,
+  engine: engine,
+  options: {
+    height: h,
+    width: w,
+    background: "#000",
+    wireframes: false,
+    pixelRatio: window.devicePixelRatio,
+  },
+});
