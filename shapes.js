@@ -29,3 +29,19 @@ const renderer = Render.create({
     pixelRatio: window.devicePixelRatio,
   },
 });
+
+// Create shapes
+const createShape = (x, y) => {
+  return Bodies.circle(x, y, 20 + 1 * Math.random());
+};
+
+// When we click the page add a new shape
+document.addEventListener("mousemove", function (event) {
+  const shape = createShape(event.pageX, event.pageY);
+  World.add(engine.world, shape);
+});
+
+// run both the engine and the renderer
+
+Engine.run(engine);
+Render.run(renderer);
