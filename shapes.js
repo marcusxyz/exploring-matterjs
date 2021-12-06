@@ -1,14 +1,14 @@
-// Two things matter needs
+// Two things matter.js needs
 
-//*******************************
-// 01 An engine
+/*********************
+ * 01 An engine *
+ *********************/
 
-//*******************************
-// 02 A renderer
+/*********************
+ * 02 A renderer *
+ *********************/
 
 // alias is a shortcut for making the code cleaner
-// const Engine = Matter.Engine;
-// const Render = Matter.Render;
 const {
   Engine,
   Render,
@@ -18,10 +18,9 @@ const {
   Composite,
   Composites,
   Common,
-  Runner,
 } = Matter;
 
-// Where is matter being deployed
+// Where the matter is being deployed
 const sectionTag = document.querySelector("section.shapes");
 
 // Canvas height and width
@@ -43,7 +42,13 @@ const renderer = Render.create({
 //Create shapes
 
 const createShape = (x, y) => {
-  const sides = Math.round(Common.random(1, 8));
+  const sides = Math.round(Common.random(1, 8), {
+    options: {
+      render: {
+        fillStyle: ["red", "green", "blue", "pink", "orange"],
+      },
+    },
+  });
 
   // round the edges of some bodies
   const chamfer = null;
@@ -78,6 +83,9 @@ const createShape = (x, y) => {
       });
   }
 };
+
+// Create the ragdoll
+const ragdoll = createRagdoll(w / 2, 50);
 
 // Big ball in middle
 
@@ -118,15 +126,18 @@ World.add(engine.world, [
   leftWall,
   rightWall,
   mouseControl,
+  ragdoll,
 ]);
 
 // Shapes spawn based on mousemove or click
-document.addEventListener("mousemove", function (event) {
+document.addEventListener("click", function (event) {
   const shape = createShape(event.pageX, event.pageY);
   World.add(engine.world, shape);
 });
 
 // run both the engine and the renderer
+
+// change gravity
 engine.gravity.y = 0.05;
 
 Engine.run(engine);
