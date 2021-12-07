@@ -9,15 +9,19 @@ const createRagdoll = (x, y) => {
    * Define Body Parts *
    *********************/
   const headOptions = {
-    friction: 1,
-    frictionAir: 0.05,
+    friction: 0.0001,
+    frictionAir: 0,
+    restitution: 0.8,
     render: {
-      fillStyle: "#FFBC42",
+      fillStyle: "lightblue",
+      strokeStyle: "ghostwhite",
+      lineWidth: 32,
     },
   };
   const chestOptions = {
-    friction: 1,
-    frictionAir: 0.05,
+    friction: 0.0001,
+    frictionAir: 0,
+    restitution: 0.8,
     collisionFilter: {
       group: defaultCollisionGroup - 1,
     },
@@ -30,8 +34,9 @@ const createRagdoll = (x, y) => {
     },
   };
   const armOptions = {
-    friction: 1,
-    frictionAir: 0.03,
+    friction: 0.0001,
+    frictionAir: 0,
+    restitution: 0.8,
     collisionFilter: {
       group: defaultCollisionGroup,
     },
@@ -43,8 +48,9 @@ const createRagdoll = (x, y) => {
     },
   };
   const legOptions = {
-    friction: 1,
-    frictionAir: 0.03,
+    friction: 0.0001,
+    frictionAir: 0.01,
+    restitution: 0.8,
     collisionFilter: {
       group: defaultCollisionGroup - 1,
     },
@@ -58,7 +64,8 @@ const createRagdoll = (x, y) => {
 
   const lowerLegOptions = {
     friction: 1,
-    frictionAir: 0.03,
+    frictionAir: 0.01,
+    restitution: 0.8,
     collisionFilter: {
       group: defaultCollisionGroup - 1,
     },
@@ -256,36 +263,6 @@ const createRagdoll = (x, y) => {
     render: {
       visible: false,
     },
-  });
-
-  window.addEventListener("keydown", (event) => {
-    const FORCE_VALUE = 0.05;
-    switch (event.keyCode) {
-      case 81: //q
-        Matter.Body.applyForce(leftLowerArm, leftLowerArm.position, {
-          x: -FORCE_VALUE,
-          y: -FORCE_VALUE,
-        });
-        break;
-      case 87: //w
-        Matter.Body.applyForce(leftLowerLeg, leftLowerLeg.position, {
-          x: -FORCE_VALUE,
-          y: FORCE_VALUE,
-        });
-        break;
-      case 79: //o
-        Matter.Body.applyForce(rightLowerArm, rightLowerArm.position, {
-          x: FORCE_VALUE,
-          y: -FORCE_VALUE,
-        });
-        break;
-      case 80: //p
-        Matter.Body.applyForce(rightLowerLeg, rightLowerLeg.position, {
-          x: FORCE_VALUE,
-          y: FORCE_VALUE,
-        });
-        break;
-    }
   });
 
   const person = Composite.create({
