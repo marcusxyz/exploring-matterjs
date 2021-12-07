@@ -61,36 +61,28 @@ const ceiling = Bodies.rectangle(w / 2, -50, w + 100, 100, wallOptions);
 const leftWall = Bodies.rectangle(-50, h / 2, 100, h + 100, wallOptions);
 const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 100, wallOptions);
 
-// Generate random colors
-
-const color = {
-  BACKGROUND: "#212529",
-  OUTER: "#495057",
-  INNER: "#15aabf",
-  BUMPER: "#fab005",
-  BUMPER_LIT: "#fff3bf",
-  PADDLE: "#e64980",
-  PINBALL: "#dee2e6",
-};
-
-const bouncyOptions = {
-  frictionAir: 0,
-  friction: 0.0001,
-  restitution: 0.8,
-  speed: 1,
-  render: {
-    fillStyle: [
-      "#EA1070",
-      "#EAC03C",
-      "#25DDBC",
-      "#007DB0",
-      "#252B7F",
-      "#FF6040",
-    ][Math.round(Math.random() * 6 - 0.5)],
-  },
-};
-
 const bouncyCircles = (x, y) => {
+  // Random colors to choose from
+  const color = Common.choose([
+    "#FBFBFB",
+    "#58EDD8",
+    "#2692F0",
+    "#FEAC24",
+    "#FF3C5C",
+  ]);
+
+  // Object settings
+  const bouncyOptions = {
+    frictionAir: 0,
+    friction: 0.0001,
+    restitution: 0.8,
+    speed: 1,
+    render: {
+      fillStyle: color,
+    },
+  };
+
+  // Randomize shapes
   switch (Math.round(Common.random(0, 1))) {
     case 0:
       if (Common.random() < 0.8) {
@@ -122,7 +114,7 @@ const bouncyCircles = (x, y) => {
 };
 
 // Create the ragdoll
-const ragdoll = createRagdoll(w / 2, 50, bouncyOptions);
+const ragdoll = createRagdoll(w / 2, 50);
 
 // Big ball in middle
 const bigBall = Bodies.circle(w / 2, h / 2, h / 8, {
@@ -131,11 +123,13 @@ const bigBall = Bodies.circle(w / 2, h / 2, h / 8, {
   render: {
     sprite: {
       texture: "./images/earth.svg",
+      xScale: 1.75,
+      yScale: 1.75,
     },
   },
 });
 
-const circles = bouncyCircles(w / 2, 50, bouncyOptions);
+const circles = bouncyCircles(w / 2, 50);
 
 const mouseControl = MouseConstraint.create(engine, {
   element: sectionTag,
