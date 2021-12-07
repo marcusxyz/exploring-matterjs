@@ -1,3 +1,25 @@
+/*********************
+ * Variables *
+ *********************/
+
+:root {
+  /* Colors */
+  --off-white: #fbfbfb;
+  --gray: #e2e2e2;
+  /* Font */
+
+  /* Font size */
+  --base-size: 16px;
+  --h1: 6rem;
+  --h2: 5rem;
+  --p: 1rem;
+  --p-small: 0.875rem;
+}
+
+/*********************
+ * General *
+ *********************/
+
 * {
   box-sizing: border-box;
 }
@@ -9,4 +31,21 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+.add-ragdoll {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  font-size: var(--p);
+  background-color: var(--off-white);
+  border: none;
+  cursor: pointer;
+}
+
+.add-ragdoll:hover {
+  background-color: var(--gray);
 }

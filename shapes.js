@@ -152,16 +152,53 @@ World.add(engine.world, [
   bouncyCircles,
 ]);
 
-// Shapes spawn based on mousemove or click
-document.addEventListener("click", function (event) {
+// Interactivities on clicks
+
+const addDebri = document.addEventListener("click", (event) => {
   // console.log("You've pressed the key:", event.key)
   const shape = bouncyCircles(event.pageX, event.pageY);
   World.add(engine.world, shape);
 });
 
-// Gravity options
-engine.gravity.y = 0;
-engine.gravity.x = 0;
+const addRagdoll = document
+  .getElementById("add-ragdoll")
+  .addEventListener("click", () => {
+    const ragdoll = createRagdoll(w / 2, 50);
+    World.add(engine.world, ragdoll);
+  });
+
+// Gravity options based on WASD keys
+window.addEventListener("keypress", function (event) {
+  console.log("You've pressed the key:", event);
+  if (event.keyCode == 119) {
+    // console.log("You've pressed the key: W");
+    engine.gravity.y = -1;
+    engine.gravity.x = 0;
+  }
+  if (event.keyCode == 115) {
+    // console.log("You've pressed the key: S");
+    engine.gravity.y = 1;
+    engine.gravity.x = 0;
+  }
+  if (event.keyCode == 97) {
+    // console.log("You've pressed the key: A");
+    engine.gravity.y = 0;
+    engine.gravity.x = -1;
+  }
+  if (event.keyCode == 100) {
+    // console.log("You've pressed the key: D");
+    engine.gravity.y = 0;
+    engine.gravity.x = 1;
+  }
+  if (event.keyCode == 32) {
+    // console.log("You've pressed the key: space");
+    engine.gravity.y = 0;
+    engine.gravity.x = 0;
+  }
+});
+
+engine.gravity.y = 0.001;
+engine.gravity.x = 0.001;
 
 Matter.Runner.run(engine);
 Render.run(renderer);
