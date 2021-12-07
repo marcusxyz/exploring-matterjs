@@ -1,24 +1,40 @@
 /*********************
+ * @FONTFACE *
+*********************/
+
+@font-face {
+  font-family: rany-regular;
+  src: url(/fonts/Rany.woff2);
+}
+
+@font-face {
+  font-family: rany-bold;
+  src: url(/fonts/Rany-Bold.woff2);
+}
+
+/*********************
  * Variables *
- *********************/
+*********************/
 
 :root {
   /* Colors */
+  --black: #000000;
   --off-white: #fbfbfb;
   --gray: #e2e2e2;
+
   /* Font */
+  --regular: rany-regular;
+  --medium: rany-medium
 
   /* Font size */
   --base-size: 16px;
-  --h1: 6rem;
-  --h2: 5rem;
-  --p: 1rem;
-  --p-small: 0.875rem;
+  --p: 1.25rem;
+  --p-small: 1rem;
 }
 
 /*********************
  * General *
- *********************/
+*********************/
 
 * {
   box-sizing: border-box;
@@ -28,24 +44,63 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+::selection {
+  color: none;
+  background: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: var(--regular);
+}
+
+a, p, h1 {
+  font-size: var(--p);
+  color: var(--off-white);
+  mix-blend-mode: difference;
+}
+
+a {
+  font-size: var(--p);
+  text-decoration: none;
+  /* text-transform: uppercase; */
+}
+
+h1 {
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+  font-family: var(--bold);
+  letter-spacing: 0.08rem;
+  /* text-transform: uppercase; */
+}
+
+div {
+  position: absolute;
+  width: 100%;
+  padding: 4rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-ragdoll {
+  cursor: pointer;
   position: absolute;
   bottom: 1rem;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1rem;
-  font-size: var(--p);
-  background-color: var(--off-white);
-  border: none;
-  cursor: pointer;
+  padding: 1.25rem 2.25rem;
+  font-size: var(--p-small);
+  color: var(--off-white);
+  background-color: transparent;
+  border-radius: 4rem;
+  border: 1px solid grey;
+  transition: all 0.25s;
 }
 
 .add-ragdoll:hover {
-  background-color: var(--gray);
+  background-color: var(--off-white);
+  color: var(--black);
 }

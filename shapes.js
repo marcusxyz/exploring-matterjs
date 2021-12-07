@@ -64,7 +64,7 @@ const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 100, wallOptions);
 const bouncyCircles = (x, y) => {
   // Random colors to choose from
   const color = Common.choose([
-    "#FBFBFB",
+    "#C92796",
     "#58EDD8",
     "#2692F0",
     "#FEAC24",
@@ -116,8 +116,8 @@ const bouncyCircles = (x, y) => {
 // Create the ragdoll
 const ragdoll = createRagdoll(w / 2, 50);
 
-// Big ball in middle
-const bigBall = Bodies.circle(w / 2, h / 2, h / 8, {
+// Create earth
+const earth = Bodies.circle(w / 2, h / 2, h / 8, {
   // shape options
   isStatic: true,
   render: {
@@ -147,7 +147,7 @@ World.add(engine.world, [
   ground,
   leftWall,
   mouseControl,
-  bigBall,
+  earth,
   ragdoll,
   bouncyCircles,
 ]);
