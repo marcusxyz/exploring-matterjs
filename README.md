@@ -1,7 +1,7 @@
-
+<img src="https://media.giphy.com/media/H8R7VKTdkPzg6EWk2Y/giphy.gif">
 
 # Exploring the possibilities of matterjs
-Make sure to check the controls below before visiting the [page](#)
+Make sure to check the controls below before visiting the [page](https://marcusxyz.github.io/exploring-matterjs/)
 
 
 ### Controls 
