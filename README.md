@@ -16,7 +16,7 @@ Make sure to check the controls below before visiting the [page](https://marcusx
 - Engine is being actively maintained
 - Good demo examples on their [website](https://brm.io/matter-js/demo/#mixed)
 
-## Ideas with matterjs
+## Further ideas
 
 Create a interactive section for a portfolio website. For example see hero and footer section on these sites: 
 - [Antoine Wodniack](https://wodniack.dev/)
