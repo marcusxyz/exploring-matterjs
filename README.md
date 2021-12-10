@@ -1,24 +1,24 @@
-INSERT MANDATORY GIF
 
-# Project Title
 
-Text about the project. This would also be a great place to link the game on Netlify.
+# Exploring the possibilities of matterjs
+Make sure to check the controls below before visiting the [page](#)
 
-# Installation
 
-Add the installation instructions.
+### Controls 
+- Click anywhere to spawn random objects and throw them around
+- `W` `A` `S` `D` to manipulate gravity `space` to go back to zero gravity
 
-# Code Review
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+## Insights
 
-# Testers
+- Ragdolls can be a bit tricky, throwing them around can sometimes result in random bursts of movement
+- Document is alright, I ended up learning matterjs via other sites and forums
+- Engine is being actively maintained
+- Good demo examples on their [website](https://brm.io/matter-js/demo/#mixed)
 
-Tested by the following people:
+## Ideas with matterjs
 
-1. Jane Doe
-2. John Doe
+Create a interactive section for a portfolio website. For example see hero and footer section on these sites: 
+- [Antoine Wodniack](https://wodniack.dev/)
+- [sabato](https://sabato.studio/) 
+- [Mrs&Mr](https://www.mrsandmr.com/)
